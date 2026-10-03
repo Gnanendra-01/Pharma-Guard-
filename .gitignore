@@ -1,39 +1,69 @@
 # Dependencies
 node_modules/
+*/node_modules/
 .pnp
-.pnp.js
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
-# Environment variables
+# Environment variables (Never commit sensitive credentials)
 .env
+.env.*
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+!.env.example
+!*/.env.example
 
-# Databases
+# Databases & SQLite WAL files
 *.db
+*.db-*
+*.db-wal
+*.db-shm
 *.db-journal
 *.sqlite
 *.sqlite3
 
-# Logs
+# Logs & Debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
 logs/
 *.log
 
-# Next.js build output
+# Build & Output
 .next/
+*/.next/
 out/
+*/out/
 build/
+*/build/
 dist/
+*/dist/
+.vercel
+*.tsbuildinfo
+next-env.d.ts
 
-# Testing
+# Testing & Coverage
 coverage/
+*/coverage/
 
-# OS and IDE files
+# OS, Editors & Temporary Files
 .DS_Store
+Thumbs.db
 *.pem
 .vscode/
 .idea/
+*.swp
+*.swo
+
+# AI / IDE Agent metadata
+frontend/AGENTS.md
+frontend/CLAUDE.md
+.agents/
+.gemini/

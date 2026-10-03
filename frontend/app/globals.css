@@ -1,54 +1,68 @@
 @import "tailwindcss";
 
-:root {
-  --background: #F7FAFC;
-  --surface: #FFFFFF;
-  --border: #E2E8F0;
-  --primary: #0F766E;
-  --primary-hover: #115E59;
-  --primary-soft: #E6F4F1;
-  --text-primary: #0F172A;
-  --text-secondary: #475569;
-  --status-success: #16A34A;
-  --status-success-soft: #DCFCE7;
-  --status-warning: #D97706;
-  --status-warning-soft: #FEF3C7;
-  --status-danger: #DC2626;
-  --status-danger-soft: #FEE2E2;
-  --status-orange: #EA580C;
-  --status-orange-soft: #FFEDD5;
+/* ===== PharmaGuard Medical Palette (SPEC §8) ===== */
+/* Define once here; reference everywhere via Tailwind utilities */
+@theme {
+  --color-primary:       #0F766E;   /* Medical teal — bg-primary, text-primary, border-primary */
+  --color-primary-dark:  #115E59;   /* Hover state   — bg-primary-dark */
+  --color-primary-soft:  #E6F4F1;   /* Tinted bg     — bg-primary-soft */
+  --color-surface:       #FFFFFF;   /* Cards         — bg-surface */
+  --color-canvas:        #F7FAFC;   /* Page bg       — bg-canvas */
+  --color-line:          #E2E8F0;   /* Borders       — border-line */
+  --color-ink:           #0F172A;   /* Body text     — text-ink */
+  --color-muted:         #475569;   /* Secondary     — text-muted */
+  --color-success:       #16A34A;   /* Safe          — text-success, bg-success */
+  --color-success-soft:  #DCFCE7;   /* Success bg    — bg-success-soft */
+  --color-warning:       #D97706;   /* Expiring      — text-warning */
+  --color-warning-soft:  #FEF3C7;   /* Warning bg    — bg-warning-soft */
+  --color-danger:        #DC2626;   /* Expired       — text-danger */
+  --color-danger-soft:   #FEE2E2;   /* Danger bg     — bg-danger-soft */
+  --color-orange:        #EA580C;   /* Low stock     — text-orange */
+  --color-orange-soft:   #FFEDD5;   /* Low stock bg  — bg-orange-soft */
 }
 
-@theme {
-  --color-bg-app: #F7FAFC;
-  --color-card-app: #FFFFFF;
-  --color-border-app: #E2E8F0;
-  --color-primary-app: #0F766E;
-  --color-primary-hover-app: #115E59;
-  --color-primary-soft-app: #E6F4F1;
-  --color-text-main: #0F172A;
-  --color-text-muted: #475569;
-  --color-status-success: #16A34A;
-  --color-status-success-soft: #DCFCE7;
-  --color-status-warning: #D97706;
-  --color-status-warning-soft: #FEF3C7;
-  --color-status-danger: #DC2626;
-  --color-status-danger-soft: #FEE2E2;
-  --color-status-orange: #EA580C;
-  --color-status-orange-soft: #FFEDD5;
-}
+/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
 
 body {
   background-color: #F7FAFC;
   color: #0F172A;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  min-height: 100vh;
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Ensure buttons are at least 44px tall for touch target accessibility */
-button, .btn {
-  min-height: 44px;
+/* Touch-target minimum (WCAG 2.5.5) */
+button, [role="button"] { min-height: 44px; }
+
+/* Visible keyboard focus ring using brand teal */
+:focus-visible {
+  outline: 2px solid #0F766E;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Remove default focus ring for mouse users */
+:focus:not(:focus-visible) { outline: none; }
+
+/* Slide-in animation for toasts */
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Fade-in for modals/drawers */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
 }
