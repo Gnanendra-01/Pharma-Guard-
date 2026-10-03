@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F7FAFC;
+  --surface: #FFFFFF;
+  --border: #E2E8F0;
+  --primary: #0F766E;
+  --primary-hover: #115E59;
+  --primary-soft: #E6F4F1;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --status-success: #16A34A;
+  --status-success-soft: #DCFCE7;
+  --status-warning: #D97706;
+  --status-warning-soft: #FEF3C7;
+  --status-danger: #DC2626;
+  --status-danger-soft: #FEE2E2;
+  --status-orange: #EA580C;
+  --status-orange-soft: #FFEDD5;
+}
+
+@theme {
+  --color-bg-app: #F7FAFC;
+  --color-card-app: #FFFFFF;
+  --color-border-app: #E2E8F0;
+  --color-primary-app: #0F766E;
+  --color-primary-hover-app: #115E59;
+  --color-primary-soft-app: #E6F4F1;
+  --color-text-main: #0F172A;
+  --color-text-muted: #475569;
+  --color-status-success: #16A34A;
+  --color-status-success-soft: #DCFCE7;
+  --color-status-warning: #D97706;
+  --color-status-warning-soft: #FEF3C7;
+  --color-status-danger: #DC2626;
+  --color-status-danger-soft: #FEE2E2;
+  --color-status-orange: #EA580C;
+  --color-status-orange-soft: #FFEDD5;
+}
+
+body {
+  background-color: #F7FAFC;
+  color: #0F172A;
+  font-size: 16px;
+  line-height: 1.5;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure buttons are at least 44px tall for touch target accessibility */
+button, .btn {
+  min-height: 44px;
+}
